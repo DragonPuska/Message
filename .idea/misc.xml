@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Message/app/src/main/res/drawable-mdpi/rectangle_message2.xml" value="0.15641891891891893" />
+        <entry key="..\:/Message/app/src/main/res/drawable/costum_input.xml" value="0.15641891891891893" />
+        <entry key="..\:/Message/app/src/main/res/drawable/costum_input2.xml" value="0.15641891891891893" />
+        <entry key="..\:/Message/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.10304054054054054" />
+        <entry key="..\:/Message/app/src/main/res/drawable/message_back.xml" value="0.2483108108108108" />
+        <entry key="..\:/Message/app/src/main/res/drawable/rectangle_message.xml" value="0.10304054054054054" />
+        <entry key="..\:/Message/app/src/main/res/layout/activity_base_logic.xml" value="0.1" />
+        <entry key="..\:/Message/app/src/main/res/layout/activity_main.xml" value="0.14695945945945946" />
+        <entry key="..\:/Message/app/src/main/res/layout/activity_message_up.xml" value="0.1" />
+        <entry key="..\:/Message/app/src/main/res/layout/activity_message_up2.xml" value="0.33" />
+        <entry key="..\:/Message/app/src/main/res/layout/activity_register.xml" value="0.14391891891891892" />
+        <entry key="..\:/Message/app/src/main/res/layout/activity_success_register.xml" value="0.2" />
+        <entry key="..\:/Message/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/Message/app/src/main/res/layout/app_bar_message_up.xml" value="0.18" />
+        <entry key="..\:/Message/app/src/main/res/layout/list_item.xml" value="0.1" />
+        <entry key="..\:/Message/app/src/main/res/layout/list_item_message.xml" value="0.23783783783783785" />
+        <entry key="..\:/Message/app/src/main/res/layout/list_item_message2.xml" value="0.33" />
+        <entry key="..\:/Message/app/src/main/res/layout/nav_header_main.xml" value="0.11678832116788321" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
