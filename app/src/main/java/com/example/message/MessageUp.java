@@ -45,6 +45,7 @@ public class MessageUp extends AppCompatActivity implements View.OnClickListener
     Context context = this;
     DatabaseReference myRef;
     List<String> values;
+    StateAdapterMessage adapter;
     SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm");
 
     @Override
@@ -77,7 +78,8 @@ public class MessageUp extends AppCompatActivity implements View.OnClickListener
         name.setText(arguments.get("name").toString());
         ImageView image = findViewById(R.id.imageViewss);
         image.setImageResource(profileImage);
-        recyclerView.setAdapter(new StateAdapterMessage(this,stateAdapterMessages));
+        adapter = new StateAdapterMessage(this,stateAdapterMessages);
+        recyclerView.setAdapter(adapter);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -93,7 +95,7 @@ public class MessageUp extends AppCompatActivity implements View.OnClickListener
                 String value = snapshot.getValue(String.class);
                 values = Arrays.asList(value.split("-"));
                 stateAdapterMessages.add(new StateMessage(values.get(0),values.get(1),values.get(2)));
-                recyclerView.setAdapter(new StateAdapterMessage(context,stateAdapterMessages));
+                adapter.notifyDataSetChanged();
             }
 
             @Override
