@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.message.databinding.ActivityMessageUp2Binding;
 import com.google.firebase.database.ChildEventListener;
@@ -116,6 +117,13 @@ public class MessageUp extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        binding.swipeMessage.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                adapter.notifyDataSetChanged();
+                binding.swipeMessage.setRefreshing(false);
             }
         });
     }

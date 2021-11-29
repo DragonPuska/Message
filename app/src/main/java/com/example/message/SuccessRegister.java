@@ -1,13 +1,16 @@
 package com.example.message;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.message.databinding.ActivitySuccessRegisterBinding;
@@ -26,6 +29,7 @@ public class SuccessRegister extends AppCompatActivity implements View.OnClickLi
     Intent MainActivity;
     Bundle bind;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         binding = ActivitySuccessRegisterBinding.inflate(getLayoutInflater());
@@ -33,7 +37,9 @@ public class SuccessRegister extends AppCompatActivity implements View.OnClickLi
         setContentView(binding.getRoot());
         Intent intent = getIntent();
         bind = intent.getExtras();
-
+        Window window = this.getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.white));
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         code = binding.editTextTextPersonName;
         reg = new Register();
         mAuth = FirebaseAuth.getInstance();
@@ -42,15 +48,16 @@ public class SuccessRegister extends AppCompatActivity implements View.OnClickLi
             currentUser.reload();
         }
         MainActivity = new Intent(this,MainActivity.class);
+        Log.d("code",bind.get("Code").toString() );
         Sender tlsSender = new Sender("semengaponov05@gmail.com","SemensemenA12");
-        tlsSender.send("CODE", reg.Code, "unnamed", bind.get("Email").toString().trim());
+        tlsSender.send("CODE", bind.get("Code").toString() , "unnamed", bind.get("Email").toString().trim());
         Button success = binding.button2;
         success.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if(code.getText().toString().equalsIgnoreCase(reg.Code)){
+        if(code.getText().toString().equalsIgnoreCase(bind.get("Code").toString() )){
             reg.push(Register.nick, bind.get("Email").toString());
             Log.d("gotovo",bind.get("Email").toString() + bind.get("Password").toString() + Register.nick);
             mAuth.createUserWithEmailAndPassword(bind.get("Email").toString(),bind.get("Password").toString())

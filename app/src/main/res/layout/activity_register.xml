@@ -84,11 +84,11 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="111dp"
+        android:layout_width="130dp"
         android:layout_height="43dp"
         android:background="@drawable/button"
         android:fontFamily="@font/extra_bold"
-        android:text="Regist"
+        android:text="Register"
         android:textSize="16sp"
         app:backgroundTint="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"

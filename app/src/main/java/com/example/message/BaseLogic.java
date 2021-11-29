@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.message.databinding.ActivityBaseLogicBinding;
 import com.google.firebase.database.ChildEventListener;
@@ -98,6 +99,19 @@ public class BaseLogic extends AppCompatActivity {
         window.setStatusBarColor(getResources().getColor(R.color.white));
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         setDatabase();
+        binding.swipeRefresher.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                adapter.notifyDataSetChanged();
+                binding.swipeRefresher.setRefreshing(false);
+            }
+        });
+        adapter = new StateAdapter(context, states, new StateAdapter.OnItemClick() {
+            @Override
+            public void OnItemClick(State states) {
+                messageup(states.getProfileResource(), states.getTitle());
+            }
+        });
     }
 
     private void setDatabase() {
@@ -112,12 +126,7 @@ public class BaseLogic extends AppCompatActivity {
                 Log.d("array_message", values.toString());
                 if (!valueCheck.contains(values.get(0)) && !values.contains(bnd.get("Email").toString())) {
                     states.add(new State(values.get(0), "", R.drawable.p, formatForDateNow.format(dateNow), ""));
-                    recyclerView.setAdapter(new StateAdapter(context, states, new StateAdapter.OnItemClick() {
-                        @Override
-                        public void OnItemClick(State states) {
-                            messageup(states.getProfileResource(), states.getTitle());
-                        }
-                    }));
+                    recyclerView.setAdapter(adapter);
                     valueCheck.add(values.get(0));
                 }
                 if (values.contains(bnd.get("Email").toString())) {

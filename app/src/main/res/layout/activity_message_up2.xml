@@ -74,16 +74,27 @@
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_scrollFlags="scroll|enterAlways|snap" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_message"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="54dp"
+        android:id="@+id/swipe_message"
         android:layout_marginBottom="54dp"
-        app:layout_constraintBottom_toBottomOf="@+id/message_field"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="54dp"
+            android:layout_marginBottom="54dp"
+            app:layout_constraintBottom_toBottomOf="@+id/message_field"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
