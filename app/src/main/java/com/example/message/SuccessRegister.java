@@ -49,8 +49,7 @@ public class SuccessRegister extends AppCompatActivity implements View.OnClickLi
         }
         MainActivity = new Intent(this,MainActivity.class);
         Log.d("code",bind.get("Code").toString() );
-        Sender tlsSender = new Sender("semengaponov05@gmail.com","SemensemenA123
-");
+        Sender tlsSender = new Sender("Email","Password");
         tlsSender.send("CODE", bind.get("Code").toString() , "unnamed", bind.get("Email").toString().trim());
         Button success = binding.button2;
         success.setOnClickListener(this);
